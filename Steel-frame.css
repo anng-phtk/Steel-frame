@@ -1,0 +1,161 @@
+/** Steel Frame Refined **/
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 2px;
+}
+
+body {
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-areas:
+        "header header header"
+        "left main right"
+        "left footer footer";
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 50px 1fr auto;
+    gap: 2px;
+}
+
+.grid>div {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.layout-header {
+    grid-area: header;
+    min-height: 0;
+}
+
+.layout-left {
+    grid-area: left;
+    width: 300px;
+    min-width: 50px;
+}
+
+
+.layout-right {
+    grid-area: right;
+    width: 300px;
+    min-width: 0;
+}
+
+
+.layout-footer {
+    grid-area: footer;
+    height: 300px;
+    min-height: 0;
+}
+
+.layout-content {
+    grid-area: main;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-row {
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    min-height: 0;
+}
+
+.app-col {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+}
+
+.flex-1 {
+    flex: 1 1 0;
+}
+
+
+.flex-2 {
+    flex: 2 1 0;
+}
+
+.flex-fixed {
+    flex: 0 0 auto;
+}
+
+.flex-fill {
+    flex: 1 1 auto;
+}
+
+.flex-fill-even {
+    flex: 1 1 0;
+}
+
+.flex-grow {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.bordered{
+    border: 1px solid #ab3232;
+    padding: 2px;
+}
+
+.panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+     "panel-title" 
+     "panel-content" 
+     "panel-footer";
+    gap: 2px;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+.panel-title {
+    grid-area: panel-title;
+    min-height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.panel-footer {
+    grid-area: panel-footer;
+    min-height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.panel-content {
+    grid-area: panel-content;
+    min-height: 0;
+    min-width: 0;
+    overflow: auto;
+}
+
+.panel-text {
+    min-width: 0;
+    overflow: hidden;
+}
+
