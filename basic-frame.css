@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    padding: 2px;
+    margin: 2px;
+    border: 1px solid dimgray;
+    gap: 2px;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.grid {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 65px 1fr 250px;
+    grid-template-columns: 330px 1fr 330px;
+    grid-template-areas:
+        "header header header"
+        "left   main   right"
+        "left   footer right";
+    gap:2px;
+    padding:2px;
+}
+
+.grid > .header {
+    display: flex;
+    grid-area: header;
+    min-height: 25px;
+    border: 1px solid silver;
+    border-radius: 2px;
+}
+
+.grid > .left {
+    display: flex;
+    grid-area: left;
+    min-width: 25px;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid silver;
+    border-radius: 2px;
+}
+
+.grid > .main {
+    display: flex;
+    grid-area: main;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid silver;
+    border-radius: 2px;
+}
+
+.grid > .right {
+    display: flex;
+    grid-area: right;
+    min-width: 25px;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid silver;
+    border-radius: 2px;
+}
+
+.grid > .footer {
+    display: flex;
+    grid-area: footer;
+    min-height: 25px;
+    border: 1px solid silver;
+    border-radius: 2px;
+}
+
+.app-row {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+.app-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.panel {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 25px 1fr 25px;
+    grid-template-areas:
+        "ico title ctrl"
+        "content content content"
+        "footer footer footer";
+
+    padding: 4px;
+    gap: 2px;
+    border: 1px solid darkgray;
+} 
+
+.panel > .panel-ico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 25px;
+    max-width: 25px;
+    grid-area: ico;
+}
+.panel > .panel-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bolder;
+    grid-area: title;
+}
+.panel > .panel-ctrl {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    grid-area: ctrl;
+}
+
+.panel > .panel-content {
+    display: flex;
+    flex-direction: column;
+    overflow:visible;
+    grid-area: content;
+    overflow: scroll;
+    min-height: 0;
+    min-width: 0;
+}
+
+.panel > .panel-footer {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    grid-area: footer;
+    min-height: 0;
+    min-width: 0;
+    font-size: small;
+}
+
+/* Flex child sizing utilities — apply to children of .app-row / .app-col */
+
+/* Fixed size: takes only its content width/height, does not grow or shrink */
+.app-flex-fixed {
+    flex: 0 0 auto;
+}
+
+/* Equal share: grows and shrinks equally with siblings (1fr each) */
+.app-flex-eq {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* Double share: takes twice the space of .app-flex-eq siblings */
+.app-flex-2 {
+    flex: 2 1 0;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* No flex: does not grow, shrinks to fit, uses auto basis */
+.app-flex-none {
+    flex: 0 1 auto;
+}
+
+
+.collapse-hr {
+    width: 25px;
+}
+
+.collapse-vr {
+    height: 25px;
+}
+
+.collapse-vr > *, .collapse-hr > * {
+    display: none;
+}
